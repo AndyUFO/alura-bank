@@ -1,4 +1,5 @@
 import esUnCuil from "./validar-cuil.js";
+import esMayorDeEdad from "./validar-edad.js";
 
 const campoDeFormulario = document.querySelectorAll("[required]");
 
@@ -10,9 +11,11 @@ function verificarCampo(campo) {
   if (campo.name == "cuil" && campo.value.length >= 11) {
     console.log("es un cuil");
     esUnCuil(campo);
-  }else{
-    console.log("no es cuil "+campo.name +" len "+campo.value.length);
   }
+
+  if(campo.name == "fecha_nacimiento" && campo.value.length > 0){
+    esMayorDeEdad(campo);
+  } 
 }
 
 
